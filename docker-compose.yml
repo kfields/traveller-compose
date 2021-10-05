@@ -1,0 +1,59 @@
+# Local dev environment
+
+version: "3.8"
+
+volumes:
+  db:
+  maildev:
+
+services:
+
+  web:
+    build:
+      context: ./web
+      target: dev
+    depends_on:
+      - db
+      - maildev
+    env_file: ./config/.env.dev
+    ports:
+      - 5000:5000
+    networks:
+      - traveller
+    restart: "no"
+    volumes:
+      - ./web/traveller:/traveller
+
+  db:
+    image: mysql
+    restart: "no"
+    env_file: ./config/.env.dev
+    ports:
+      - 3306:3306
+    volumes:
+      - db:/var/lib/mysql
+    networks:
+      - traveller
+
+  adminer:
+    image: adminer
+    depends_on:
+      - db
+    restart: "no"
+    env_file: ./config/.env.dev
+    ports:
+      - 8080:8080
+    networks:
+      - traveller
+
+  # Database Admin
+  maildev:
+    image: maildev/maildev
+    restart: "no"
+    volumes:
+      - maildev:/var/lib/maildev
+    networks:
+      - traveller
+
+networks:
+  traveller:
