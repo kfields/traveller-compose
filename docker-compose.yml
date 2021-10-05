@@ -28,6 +28,8 @@ services:
     image: mysql
     restart: "no"
     env_file: ./config/.env.dev
+    cap_add:
+      - SYS_NICE  # CAP_SYS_NICE
     ports:
       - 3306:3306
     volumes:
