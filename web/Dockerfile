@@ -16,8 +16,11 @@ RUN pip3 install -r /tmp/dev_requirements.txt
 
 RUN mkdir -p /traveller && useradd -d /traveller -u 1000 traveller && chown -R traveller /traveller
 
-# Copy the startup script
-COPY ./instance /traveller/traveller/instance
+WORKDIR /traveller/traveller
+
+# Copy the instance folder to the workdir
+COPY instance instance/
+COPY bin bin/
 
 USER traveller
 
@@ -26,5 +29,3 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 ENTRYPOINT ["bash", "/tmp/startdev.sh"]
-
-WORKDIR /traveller/traveller
