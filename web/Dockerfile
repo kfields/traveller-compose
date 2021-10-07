@@ -19,7 +19,7 @@ RUN pip3 install -r /tmp/dev_requirements.txt
 
 RUN mkdir -p /traveller && useradd -d /traveller -u 1000 traveller && chown -R traveller /traveller
 
-WORKDIR /traveller/traveller
+WORKDIR /traveller
 
 USER traveller
 

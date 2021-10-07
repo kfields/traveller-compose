@@ -1,4 +1,5 @@
-cp /tmp/instance instance/
+#cp /tmp/instance instance/
+cp -a /tmp/instance/. /traveller/instance/
 
 python manage.py initialise
 

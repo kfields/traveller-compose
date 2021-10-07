@@ -22,7 +22,7 @@ services:
       - traveller
     restart: "no"
     volumes:
-      - ./web/traveller:/traveller
+      - ./web/traveller/traveller:/traveller
 
   db:
     image: mysql
@@ -52,6 +52,8 @@ services:
   maildev:
     image: maildev/maildev
     restart: "no"
+    ports:
+      - 1080:80
     volumes:
       - maildev:/var/lib/maildev
     networks:
