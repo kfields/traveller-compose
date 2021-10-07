@@ -133,11 +133,7 @@ traveller/sphinx_source/_build/
 # PyCharm
 .idea/
 
-# traveller
-testing.db
-
-# configation files
-traveller/config.json
+web/traveller/
 
 # docker compose
 volumes

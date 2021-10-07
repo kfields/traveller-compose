@@ -1,3 +1,5 @@
+cp /tmp/instance instance/
+
 python manage.py initialise
 
 python manage.py db migrate

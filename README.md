@@ -11,6 +11,7 @@ Install Docker Compose and Docker on your machine if you haven't already:  [Inst
 ```bash
 git clone https://github.com/kfields/traveller-compose
 cd traveller-compose
+git clone https://github.com/kfields/traveller web/traveller
 docker-compose up
 ```
 
