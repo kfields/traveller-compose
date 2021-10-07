@@ -114,16 +114,10 @@ venv.bak/
 .dmypy.json
 dmypy.json
 
-# Pyre type checker
-.pyre/
-migrations/
-*.bat
-traveller/sphinx_source/_build/
-
 # PyCharm
 .idea/
 
-web/traveller/
+/web/traveller/
 
 # docker compose
 volumes
